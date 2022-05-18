@@ -3,11 +3,12 @@ import { createGlobalStyle } from 'styled-components'
 export default createGlobalStyle`
 html, body, .App {
         background-color: var(--grey1);
+        height: 100vh;
 }
 
 
 :root {
-        --grey1 : #E5E5E5;
+        --grey1 : #fafaf7;
         --grey2 : #3D454C; 
         --red   : #E60B1E;   
         --blue  : #3D8ED9; 
@@ -63,6 +64,10 @@ blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
+}
+a {
+  text-decoration: none;
+  color: var(--blue1);
 }
 table {
 	border-collapse: collapse;

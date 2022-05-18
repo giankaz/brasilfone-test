@@ -1,4 +1,6 @@
 import { Redirect, Route, Switch } from "react-router-dom";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 export default function Routes() {
 	return (
@@ -6,8 +8,12 @@ export default function Routes() {
 			<Route exact path="/">
                 <Redirect to='/login'/>
 			</Route>
-			<Route path="/login"></Route>
-			<Route path="/cadastro"></Route>
+			<Route path="/login">
+				<Login/>
+			</Route>
+			<Route path="/cadastro">
+				<Register/>
+			</Route>
 		</Switch>
 	);
 }

@@ -6,17 +6,20 @@ import reportWebVitals from './reportWebVitals';
 import Global from './styles/global';
 import { BrowserRouter } from 'react-router-dom';
 import Providers from './providers';
+import { SnackbarProvider } from 'notistack';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Providers>
-    <BrowserRouter>
+
+  <BrowserRouter>
+    <SnackbarProvider>
       <React.StrictMode>
         <Global />
         <App />
       </React.StrictMode>
-    </BrowserRouter>
-  </Providers>
+    </SnackbarProvider>
+  </BrowserRouter>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

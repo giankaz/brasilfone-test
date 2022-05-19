@@ -1,47 +1,53 @@
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useSnackbar } from "notistack";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import * as yup from "yup";
 import Button from "../../components/Global/Button";
 import Form from "../../components/Global/Form";
 import InputBase from "../../components/Global/InputBase";
+import InputBaseEmail from "../../components/Global/InputBaseEmail";
 import InputPhone from "../../components/Global/InputNumber";
 import InputPass from "../../components/Global/InputPass";
+import InputPassCheck from "../../components/Global/InputPassCheck";
 import RadioBox from "../../components/Global/Radio";
 import RadioGroups from "../../components/Global/RadioGroup";
 import DisparoLogo from "../../components/LeftSideDesktop/DisparoLogo";
 import LeftFigure from "../../components/LeftSideDesktop/LeftFigure";
 import { StyledMain } from "./styles";
 
-import * as yup from "yup";
-import { Controller, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useEffect, useState } from "react";
-import InputBaseEmail from "../../components/Global/InputBaseEmail";
-import InputPassCheck from "../../components/Global/InputPassCheck";
-import { useErrors } from "../../providers/ErrorClass";
 
 export default function Register() {
 	const [number, setNumber] = useState("");
 	const [agreed, setAgreed] = useState(false);
 	const [notify, setNotify] = useState("");
-	const [numberError, setNumberError] = useState(false)
-	const [agreedError, setAgreedError] = useState(false)
-	const [notifyError, setNotifyError] = useState(false)
+	const [numberError, setNumberError] = useState(false);
+	const [agreedError, setAgreedError] = useState(false);
+	const [notifyError, setNotifyError] = useState(false);
+	const { enqueueSnackbar } = useSnackbar();
+	const history = useHistory()
 
-	const { error, handleChange, clearErrors } = useErrors();
+
 
 	const schema = yup.object().shape({
 		name: yup
 			.string()
 			.required("Digite seu nome completo!")
 			.max(18, "Digite seu nome com menos que 18 letras!")
-			.matches(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/,
+			.matches(
+				/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/,
 				"Seu nome deve conter apenas letras"
 			),
 		email: yup
 			.string()
 			.required("Digite seu Email!")
-			.email("Email não é válido")
-			,
-		pass: yup.string().required("Digite sua Senha!").min(6, "Senha deve ter 6 caracteres ou mais."),
+			.email("Email não é válido"),
+		pass: yup
+			.string()
+			.required("Digite sua Senha!")
+			.min(6, "Senha deve ter 6 caracteres ou mais."),
 		passCheck: yup
 			.string()
 			.required("Confirme sua senha!")
@@ -53,39 +59,40 @@ export default function Register() {
 	const {
 		register,
 		handleSubmit,
-		control,
 		formState: { errors },
 	} = useForm({
 		resolver: yupResolver(schema),
 	});
 
-	useEffect(() => {
-		const test = {};
-		for (let key in errors) {
-			test[key] = true;
-		}
-		handleChange(test);
-	}, [errors]);
-
 	const submit = (data) => {
-		if (number.length < 12) {
-			setNumberError(true)
+		if (number.length < 13) {
+			setNumberError(true);
 		} else if (!agreed) {
-			setNumberError(false)
-			setAgreedError(true)
-		} else if (notify === '') {
-			setNumberError(false)
-			setAgreedError(false)
-			setNotifyError(true)
+			setNumberError(false);
+			setAgreedError(true);
+		} else if (notify === "") {
+			setNumberError(false);
+			setAgreedError(false);
+			setNotifyError(true);
 		} else {
-			setNumberError(false)
-			setNotifyError(false)
-			setAgreedError(false)
-			console.log(data);
-			setNumberError(false)
-			console.log(number);
-			console.log(agreed);
-			console.log(notify);
+			setNumberError(false);
+			setNotifyError(false);
+			setAgreedError(false);
+			const userSubmit = {
+				...data,
+				number: number,
+				agreed: agreed,
+				notify: notify
+			}
+			localStorage.setItem('@Disparo_userSubmit', JSON.stringify(userSubmit) )
+			enqueueSnackbar(`Cadastro Realizado! Faça seu login para continuar.`, {
+				variant: "success",
+				autoHideDuration: 3000,
+
+			});
+			setTimeout(() => {
+				history.push('/login')
+			}, 2000)
 		}
 	};
 
@@ -122,7 +129,7 @@ export default function Register() {
 								number={number}
 								setNumber={setNumber}
 								className={numberError && "error"}
-								errorMsg={numberError && 'Digite seu Número corretamente.'}
+								errorMsg={numberError && "Digite seu Número corretamente."}
 							/>
 							<InputPass
 								label="Senha"
@@ -138,13 +145,20 @@ export default function Register() {
 								className={errors.passCheck?.message && "error"}
 								errorMsg={errors.passCheck?.message && errors.passCheck.message}
 							/>
-							<RadioBox setAgreed={setAgreed} errorMsg={agreedError && 'Você deve aceitar os termos para continuar!'} className={agreedError && 'error'}/>
+							<RadioBox
+								setAgreed={setAgreed}
+								errorMsg={
+									agreedError && "Você deve aceitar os termos para continuar!"
+								}
+								className={agreedError && "error"}
+							/>
 							<div className="register__notify">
-								<span className={notifyError && 'error'}>
-								{notifyError ? 'Escolha se deseja receber ofertas:' : 'Quero receber ofertas, novidades, conteúdos informativos e publicitários da Disparo Pro'}
-									
+								<span className={notifyError && "error"}>
+									{notifyError
+										? "Escolha se deseja receber ofertas, novidades, conteúdos informativos e publicitários:"
+										: "Quero receber ofertas, novidades, conteúdos informativos e publicitários da Disparo Pro"}
 								</span>
-								<RadioGroups setNotify={setNotify}/>
+								<RadioGroups setNotify={setNotify} />
 							</div>
 
 							<Button width={"80%"} type="submit">

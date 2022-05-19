@@ -6,7 +6,6 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { useState } from 'react';
-import { useErrors } from '../../../providers/ErrorClass';
 import { StyledDiv } from './styles';
 
 
@@ -40,6 +39,7 @@ export default function InputPassCheck ({label, register, info, className, error
           <FormControl sx={{ m: 1, width: '100%', height: '40px'}} variant="outlined">
             <OutlinedInput
               {...register(info)}
+              error={className ? true : false}
               type={values.showPassword ? 'text' : 'password'}
               value={values.password}
               sx={{height: '40px'}}

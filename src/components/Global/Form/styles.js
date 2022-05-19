@@ -18,7 +18,10 @@ export const StyledForm = styled.form`
 
     @media (max-width: 500px) {
       & {
-        min-width: 330px;
+        margin-top: 10px;
+        width: 100%;
+        padding: 0;
       }
     }
+
 `

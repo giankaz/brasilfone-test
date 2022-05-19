@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import background from '../../assets/bkg.svg'
-
 
 
 export const StyledMain = styled.main`
@@ -57,8 +55,8 @@ export const StyledMain = styled.main`
   .form__innerBox {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-
+    gap: 20px;
+    width: 100%;
     align-items: center;
   }
 
@@ -78,6 +76,7 @@ export const StyledMain = styled.main`
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 95%;
     align-items: center;
   }
 
@@ -135,3 +134,44 @@ export const StyledMain = styled.main`
   }
   }
 `
+
+export const StyledErrorContainer = styled.div`
+    display: ${props => props.display};
+    background-color: #FBDBDD;
+    width: 95.5%;
+    height: 50px;
+    border-radius: 6px;
+    border: 2px solid #f8c0c4;
+    padding: 5px 10px 5px 10px;
+    justify-content: flex-start;
+    align-items: center;
+
+
+    .error__container {
+      border-left: 3px solid #f06b77;
+      width: 13%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .error__msg {
+      width: 60%;
+      text-align: start;
+  
+    }
+
+    img {
+      width: 20px;
+      color: red;
+    }
+
+
+    span {
+      font-size: 12px;
+      width: 100%;
+      text-align: start;
+      color: #f06b77;
+    }
+  `

@@ -161,7 +161,7 @@ export default function Register() {
 								<RadioGroups setNotify={setNotify} />
 							</div>
 
-							<Button width={"80%"} type="submit">
+							<Button width={"70%"} type="submit">
 								Cadastrar
 							</Button>
 						</div>

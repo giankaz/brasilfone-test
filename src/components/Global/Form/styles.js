@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 
 export const StyledForm = styled.form`
-    min-width: 320px;
+    min-width: 370px;
     padding: 20px;
     min-height: 400px;
 

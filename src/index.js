@@ -1,12 +1,11 @@
+import { SnackbarProvider } from 'notistack';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Global from './styles/global';
-import { BrowserRouter } from 'react-router-dom';
-import Providers from './providers';
-import { SnackbarProvider } from 'notistack';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

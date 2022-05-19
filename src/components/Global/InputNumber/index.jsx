@@ -26,7 +26,7 @@ export default function InputPhone({label, number, setNumber, className, errorMs
             required: true,
             autoFocus: true,
         }}
-
+          buttonStyle={{backgroundColor: 'transparent', borderRight: 'none'}}
           />
       </StyledDiv>
   )

@@ -16,7 +16,7 @@ export const StyledDiv = styled.div`
     }
 
     .error {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--red);
       padding:0 10px 0 10px;
     }

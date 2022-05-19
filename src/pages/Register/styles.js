@@ -24,6 +24,7 @@ export const StyledMain = styled.main`
       display: flex;
       position: relative;
       justify-content: center;
+      align-items: center;
 
       background-repeat: repeat-x;
       background-size: cover;
@@ -38,6 +39,7 @@ export const StyledMain = styled.main`
     .figure__logo {
       width: 200px;
 
+      align-self: flex-start;
       margin-left: 10%;
     }
 

@@ -21,6 +21,7 @@ export const StyledMain = styled.main`
   .figure__container {
     display: flex;
     justify-content: center;
+    align-items: center;
 
     background-repeat: repeat-x;
     background-size: cover;
@@ -35,6 +36,8 @@ export const StyledMain = styled.main`
  
   .figure__logo {
     width: 200px;
+
+    align-self: flex-start;
 
     margin-left: 10%;
   }

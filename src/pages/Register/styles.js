@@ -58,6 +58,7 @@ export const StyledMain = styled.main`
     display: flex;
     flex-direction: column;
     gap: 10px;
+  
 
     align-items: center;
   }
@@ -87,6 +88,7 @@ export const StyledMain = styled.main`
     display: flex;
     flex-direction: column;
     gap: 10px;
+   
     
   }
 
@@ -104,6 +106,7 @@ export const StyledMain = styled.main`
 
   .register__notify {
       width: 300px;
+      font-size: 13px;
       text-align: start;
       display: flex;
       flex-direction: column;

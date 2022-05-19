@@ -7,7 +7,7 @@ min-width: 340px;
 
 
 .span__read {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--grey2);
     padding:0 10px 0 10px;
 

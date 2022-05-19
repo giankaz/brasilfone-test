@@ -75,6 +75,7 @@ export const StyledMain = styled.main`
   }
 
 
+
   .login__info {
     display: flex;
     flex-direction: column;
@@ -114,8 +115,10 @@ export const StyledMain = styled.main`
     color: var(--grey2);
 
   }
-
-
+  .register__notify>.error {
+      color: var(--red);
+    }
+  
   @media (max-width: 768px) {
    & {
         flex-direction: column;
@@ -144,6 +147,8 @@ export const StyledMain = styled.main`
         }
 
   }
+
+
     @media (max-height: 600px) {
         & {
         flex-direction: column;

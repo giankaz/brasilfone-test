@@ -1,11 +1,14 @@
 
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import { useErrors } from '../../../providers/ErrorClass';
 
-export default function RadioGroups() {
+export default function RadioGroups({setNotify}) {
+  const {error} = useErrors()
+
+
   return (
     <FormControl
      >
@@ -14,16 +17,18 @@ export default function RadioGroups() {
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"
       >
-        <FormControlLabel value="female" control={<Radio 
+        <FormControlLabel value={true} control={<Radio 
         size='small'
+        onChange={() => setNotify(true)}
          sx={{
             '& .MuiSvgIcon-root': {
               color: 'var(--blue2)',
             },
           }}
         />} label="Sim" />
-        <FormControlLabel value="male" control={<Radio
+        <FormControlLabel value={false} control={<Radio
         size='small'
+        onChange={() => setNotify(false)}
          sx={{
             '& .MuiSvgIcon-root': {
               color: 'var(--blue2)',

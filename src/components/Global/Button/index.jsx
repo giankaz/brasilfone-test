@@ -1,6 +1,6 @@
 import { StyledButton } from './styles'
-export default function Button({children, width}) {
+export default function Button({children, type, width}) {
   return (
-    <StyledButton width={width}>{children}</StyledButton>
+    <StyledButton width={width} type={type}>{children}</StyledButton>
   )
 }

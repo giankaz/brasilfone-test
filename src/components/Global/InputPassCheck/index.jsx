@@ -10,7 +10,7 @@ import { useErrors } from '../../../providers/ErrorClass';
 import { StyledDiv } from './styles';
 
 
-export default function InputPass({label, register, info, className, errorMsg}) {
+export default function InputPassCheck ({label, register, info, className, errorMsg}) {
 
 
     const [values, setValues] = useState({
@@ -32,8 +32,6 @@ export default function InputPass({label, register, info, className, errorMsg}) 
     const handleMouseDownPassword = (event) => {
       event.preventDefault();
     };
-
-
   
     return (
        <StyledDiv>
@@ -44,7 +42,7 @@ export default function InputPass({label, register, info, className, errorMsg}) 
               {...register(info)}
               type={values.showPassword ? 'text' : 'password'}
               value={values.password}
-              sx={{height: '40px', border: className}}
+              sx={{height: '40px'}}
               onChange={handleChange('password')}
               endAdornment={
                 <InputAdornment position="end">

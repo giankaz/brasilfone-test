@@ -2,8 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import Button from "../../components/Global/Button";
 import Form from "../../components/Global/Form";
@@ -18,18 +17,23 @@ import DisparoLogo from "../../components/LeftSideDesktop/DisparoLogo";
 import LeftFigure from "../../components/LeftSideDesktop/LeftFigure";
 import { StyledMain } from "./styles";
 
-
 export default function Register() {
+
 	const [number, setNumber] = useState("");
+
 	const [agreed, setAgreed] = useState(false);
+
 	const [notify, setNotify] = useState("");
+
 	const [numberError, setNumberError] = useState(false);
+
 	const [agreedError, setAgreedError] = useState(false);
+
 	const [notifyError, setNotifyError] = useState(false);
+
 	const { enqueueSnackbar } = useSnackbar();
-	const history = useHistory()
-
-
+	
+	const history = useHistory();
 
 	const schema = yup.object().shape({
 		name: yup
@@ -82,21 +86,21 @@ export default function Register() {
 				...data,
 				number: number,
 				agreed: agreed,
-				notify: notify
-			}
-			localStorage.setItem('@Disparo_userSubmit', JSON.stringify(userSubmit) )
+				notify: notify,
+			};
+			localStorage.setItem("@Disparo_userSubmit", JSON.stringify(userSubmit));
 			enqueueSnackbar(`Cadastro Realizado! Faça seu login para continuar.`, {
 				variant: "success",
 				autoHideDuration: 3000,
-
 			});
 			setTimeout(() => {
-				history.push('/login')
-			}, 2000)
+				history.push("/login");
+			}, 2000);
 		}
 	};
 
 	return (
+		
 		<StyledMain>
 			<section className="figure__container">
 				<DisparoLogo className="figure__logo" />
@@ -106,10 +110,12 @@ export default function Register() {
 			<DisparoLogo className="mobile__logo" />
 
 			<section className="form__container">
+
 				<Form onSubmit={handleSubmit(submit)}>
 					<div className="form__innerBox">
 						<h2>Cadastre-se</h2>
 						<div className="login__info">
+
 							<InputBase
 								label="Nome"
 								register={register}
@@ -117,6 +123,7 @@ export default function Register() {
 								className={errors.name?.message && "error"}
 								errorMsg={errors.name?.message && errors.name.message}
 							/>
+
 							<InputBaseEmail
 								label="E-mail"
 								register={register}
@@ -124,6 +131,7 @@ export default function Register() {
 								className={errors.email?.message && "error"}
 								errorMsg={errors.email?.message && errors.email.message}
 							/>
+
 							<InputPhone
 								label="Número"
 								number={number}
@@ -131,6 +139,7 @@ export default function Register() {
 								className={numberError && "error"}
 								errorMsg={numberError && "Digite seu Número corretamente."}
 							/>
+
 							<InputPass
 								label="Senha"
 								register={register}
@@ -138,6 +147,7 @@ export default function Register() {
 								className={errors.pass?.message && "error"}
 								errorMsg={errors.pass?.message && errors.pass.message}
 							/>
+
 							<InputPassCheck
 								label="Repetir Senha"
 								register={register}
@@ -145,6 +155,7 @@ export default function Register() {
 								className={errors.passCheck?.message && "error"}
 								errorMsg={errors.passCheck?.message && errors.passCheck.message}
 							/>
+
 							<RadioBox
 								setAgreed={setAgreed}
 								errorMsg={
@@ -152,6 +163,7 @@ export default function Register() {
 								}
 								className={agreedError && "error"}
 							/>
+
 							<div className="register__notify">
 								<span className={notifyError && "error"}>
 									{notifyError
@@ -164,19 +176,17 @@ export default function Register() {
 							<Button width={"70%"} type="submit">
 								Cadastrar
 							</Button>
+
 						</div>
+
 						<div className="form__toRegister">
 							<p>Ja é cliente Disparo Pro ?</p>
 							<Link to="/login">Fazer Login</Link>
 						</div>
+
 					</div>
 				</Form>
 			</section>
 		</StyledMain>
 	);
 }
-
-/* .matches(
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
- "Deve conter 08 caracteres sendo uma letra maiúscula, uma minúscula, um número e um caractere especial(!,@,#,$,%,&...)"
-) */

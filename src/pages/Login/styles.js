@@ -5,13 +5,13 @@ export const StyledMain = styled.main`
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  height: 100%;
+  min-height: 100vh;
 
   section {
-    width: 50%;
+    width: 100%;
+
     display: flex;
     flex-direction: column;
-
   }
 
   .mobile__logo {
@@ -20,7 +20,6 @@ export const StyledMain = styled.main`
 
   .figure__container {
     display: flex;
-    position: relative;
     justify-content: center;
 
     background-repeat: repeat-x;
@@ -31,18 +30,18 @@ export const StyledMain = styled.main`
     background: linear-gradient(135deg,  rgba(125,185,232,1) 0%,rgba(41,137,216,1) 29%,rgba(30,87,153,1) 100%); 
 
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=1 );  
-
-
   }
 
  
   .figure__logo {
     width: 200px;
+
     margin-left: 10%;
   }
 
   .figure__logo:hover {
     filter: brightness(120%);
+
     cursor: pointer;
   }
 
@@ -50,14 +49,17 @@ export const StyledMain = styled.main`
   .form__container {
     justify-content: center;
     align-items: center;
+
+    padding: 20px;
   }
 
   .form__innerBox {
+    width: 100%;
+
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 100%;
     align-items: center;
+    gap: 20px;
   }
 
   label {
@@ -73,18 +75,19 @@ export const StyledMain = styled.main`
 
 
   .login__info {
+    width: 95%;
+
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    width: 95%;
     align-items: center;
+    gap: 5px;
   }
 
   .form__toRegister {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 10px;
-    
   }
 
   .form__toRegister>p {
@@ -102,7 +105,36 @@ export const StyledMain = styled.main`
       flex-direction: column;
       align-items: center;
       justify-content: center;
+
       background-repeat: repeat-x;
+      background-size: cover;
+      background: rgb(125,185,232); 
+      background: -moz-linear-gradient(-45deg,  rgba(125,185,232,1) 0%, rgba(41,137,216,1) 29%, rgba(30,87,153,1) 100%); 
+      background: -webkit-linear-gradient(-45deg,  rgba(125,185,232,1) 0%,rgba(41,137,216,1) 29%,rgba(30,87,153,1) 100%); 
+      background: linear-gradient(135deg,  rgba(125,185,232,1) 0%,rgba(41,137,216,1) 29%,rgba(30,87,153,1) 100%); 
+
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=1 );  
+    }
+    .mobile__logo {
+      display: block;
+      width: 200px;
+      justify-self: flex-start;
+    }
+
+    .figure__container {
+      display: none;
+    }
+
+  }
+
+  @media (max-height: 500px) {
+  
+   & {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-repeat: repeat-x;
     background-size: cover;
     background: rgb(125,185,232); 
     background: -moz-linear-gradient(-45deg,  rgba(125,185,232,1) 0%, rgba(41,137,216,1) 29%, rgba(30,87,153,1) 100%); 
@@ -110,47 +142,41 @@ export const StyledMain = styled.main`
     background: linear-gradient(135deg,  rgba(125,185,232,1) 0%,rgba(41,137,216,1) 29%,rgba(30,87,153,1) 100%); 
 
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=1 );  
-     
-    }
-    .mobile__logo {
+  }
+
+  .mobile__logo {
     display: block;
     width: 200px;
     justify-self: flex-start;
   }
 
-    .figure__container {
-      display: none;
-    }
-
-  }
-  @media (max-height: 500px) {
-    .mobile__logo {
-    display: block;
-  
-  }
-
   .figure__container {
     display: none;
   }
-  }
+    
+}
 `
 
 export const StyledErrorContainer = styled.div`
-    display: ${props => props.display};
-    background-color: #FBDBDD;
     width: 95.5%;
     height: 50px;
-    border-radius: 6px;
-    border: 2px solid #f8c0c4;
+
     padding: 5px 10px 5px 10px;
+    border: 2px solid #f8c0c4;
+    border-radius: 6px;
+
+    display: ${props => props.display};
     justify-content: flex-start;
     align-items: center;
 
+    background-color: #FBDBDD;
 
     .error__container {
-      border-left: 3px solid #f06b77;
       width: 13%;
       height: 100%;
+
+      border-left: 3px solid #f06b77;
+      
       display: flex;
       align-items: center;
       justify-content: center;
@@ -158,19 +184,21 @@ export const StyledErrorContainer = styled.div`
 
     .error__msg {
       width: 60%;
+
       text-align: start;
-  
     }
 
     img {
       width: 20px;
+
       color: red;
     }
 
 
     span {
-      font-size: 12px;
       width: 100%;
+
+      font-size: 12px;
       text-align: start;
       color: #f06b77;
     }

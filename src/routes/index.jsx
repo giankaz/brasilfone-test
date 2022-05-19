@@ -5,15 +5,19 @@ import Register from "../pages/Register";
 export default function Routes() {
 	return (
 		<Switch>
+
 			<Route exact path="/">
-                <Redirect to='/login'/>
+				<Redirect to="/login" />
 			</Route>
+
 			<Route path="/login">
-				<Login/>
+				<Login />
 			</Route>
+
 			<Route path="/cadastro">
-				<Register/>
+				<Register />
 			</Route>
+			
 		</Switch>
 	);
 }

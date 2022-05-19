@@ -1,10 +1,6 @@
-import React from 'react'
-import { StyledForm } from './styles'
+import React from "react";
+import { StyledForm } from "./styles";
 
-export default function Form({children, ...rest}) {
-  return (
-    <StyledForm {...rest}>
-        {children}
-    </StyledForm>
-  )
+export default function Form({ children, ...rest }) {
+	return <StyledForm {...rest}>{children}</StyledForm>;
 }

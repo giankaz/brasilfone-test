@@ -1,11 +1,5 @@
-
-
-
-
 const Providers = ({ children }) => {
-    return (
-        <></>
-    )
-}
+	return <></>;
+};
 
-export default Providers
+export default Providers;

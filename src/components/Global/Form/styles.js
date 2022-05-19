@@ -2,9 +2,12 @@ import styled from 'styled-components'
 
 
 export const StyledForm = styled.form`
-    min-width: 370px;
-    padding: 20px;
+    width: 100%;
+    max-width: 370px;
     min-height: 400px;
+    
+    padding: 20px;
+    
     border-radius: 12px;
 
     display: flex;
@@ -20,7 +23,6 @@ export const StyledForm = styled.form`
       & {
         margin-top: 10px;
         width: 100%;
-        padding: 0;
       }
     }
 

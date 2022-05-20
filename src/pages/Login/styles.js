@@ -186,8 +186,6 @@ export const StyledErrorContainer = styled.div`
     }
 
     .error__msg {
-      width: 60%;
-
       text-align: start;
     }
 

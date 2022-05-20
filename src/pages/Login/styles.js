@@ -197,7 +197,6 @@ export const StyledErrorContainer = styled.div`
       color: red;
     }
 
-
     span {
       width: 100%;
 

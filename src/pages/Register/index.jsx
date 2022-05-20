@@ -69,30 +69,47 @@ export default function Register() {
 	});
 
 	const submit = (data) => {
+
 		if (number.length < 13) {
+
 			setNumberError(true);
+
 		} else if (!agreed) {
+
 			setNumberError(false);
+
 			setAgreedError(true);
+
 		} else if (notify === "") {
+
 			setNumberError(false);
+
 			setAgreedError(false);
+
 			setNotifyError(true);
+
 		} else {
+
 			setNumberError(false);
+
 			setNotifyError(false);
+
 			setAgreedError(false);
+
 			const userSubmit = {
 				...data,
 				number: number,
 				agreed: agreed,
 				notify: notify,
 			};
+
 			localStorage.setItem("@Disparo_userSubmit", JSON.stringify(userSubmit));
+
 			enqueueSnackbar(`Cadastro Realizado! Faça seu login para continuar.`, {
 				variant: "success",
 				autoHideDuration: 3000,
 			});
+			
 			setTimeout(() => {
 				history.push("/login");
 			}, 2000);

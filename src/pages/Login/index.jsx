@@ -37,9 +37,12 @@ export default function Login() {
 	});
 
 	useEffect(() => {
+
 		if (errors.email?.message || errors.pass?.message) {
+			
 			setLoginError(true);
 		}
+
 	}, [errors]);
 
 	const submit = (data) => {
@@ -48,16 +51,22 @@ export default function Login() {
 		console.log(`🤖 ~ submit ~ dataBase`, dataBase);
 
 		if (dataBase.email === data.email || dataBase.number === data.email) {
+
 			if (dataBase.pass === data.pass) {
+
 				enqueueSnackbar(`Login realizado com sucesso!`, {
 					variant: "success",
 					autoHideDuration: 3000,
 				});
+
 				setLoginError(false);
+
 			} else {
+
 				setLoginError(true);
 			}
 		} else {
+
 			setLoginError(true);
 		}
 	};

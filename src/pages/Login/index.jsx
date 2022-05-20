@@ -1,9 +1,12 @@
+//hooks
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
+
+//components
 import errorLogo from "../../assets/error.svg";
 import Button from "../../components/Global/Button";
 import Form from "../../components/Global/Form";
@@ -39,7 +42,7 @@ export default function Login() {
 	useEffect(() => {
 
 		if (errors.email?.message || errors.pass?.message) {
-			
+
 			setLoginError(true);
 		}
 

@@ -1,9 +1,12 @@
+//hooks
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
+
+//components 
 import Button from "../../components/Global/Button";
 import Form from "../../components/Global/Form";
 import InputBase from "../../components/Global/InputBase";
@@ -109,7 +112,7 @@ export default function Register() {
 				variant: "success",
 				autoHideDuration: 3000,
 			});
-			
+
 			setTimeout(() => {
 				history.push("/login");
 			}, 2000);

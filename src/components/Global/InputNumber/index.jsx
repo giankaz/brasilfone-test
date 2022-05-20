@@ -21,13 +21,7 @@ export default function InputPhone({
 				value={number}
 				onChange={(phone) => setNumber(phone)}
 				enableAreaCodes={true}
-				isValid={() => {
-					if (className) {
-						return "";
-					} else {
-						return true;
-					}
-				}}
+				isValid={() => className ? '' : true}
 				preferredCountries={["br", "us"]}
 				inputStyle={{ width: "100%", height: "40px", color: "var(--blue2)" }}
 				containerStyle={{

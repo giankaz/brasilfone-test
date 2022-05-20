@@ -140,7 +140,7 @@ export default function Register() {
 								label="Nome"
 								register={register}
 								info="name"
-								className={errors.name?.message && "error"}
+								className={errors.name?.message ? "error" : undefined}
 								errorMsg={errors.name?.message && errors.name.message}
 							/>
 
@@ -148,7 +148,7 @@ export default function Register() {
 								label="E-mail"
 								register={register}
 								info="email"
-								className={errors.email?.message && "error"}
+								className={errors.email?.message ? "error" : undefined}
 								errorMsg={errors.email?.message && errors.email.message}
 							/>
 
@@ -156,7 +156,7 @@ export default function Register() {
 								label="Número"
 								number={number}
 								setNumber={setNumber}
-								className={numberError && "error"}
+								className={numberError ? "error" : undefined}
 								errorMsg={numberError && "Digite seu Número corretamente."}
 							/>
 
@@ -164,7 +164,7 @@ export default function Register() {
 								label="Senha"
 								register={register}
 								info="pass"
-								className={errors.pass?.message && "error"}
+								className={errors.pass?.message ? "error" : undefined}
 								errorMsg={errors.pass?.message && errors.pass.message}
 							/>
 
@@ -172,7 +172,7 @@ export default function Register() {
 								label="Repetir Senha"
 								register={register}
 								info="passCheck"
-								className={errors.passCheck?.message && "error"}
+								className={errors.passCheck?.message ? "error" : undefined}
 								errorMsg={errors.passCheck?.message && errors.passCheck.message}
 							/>
 
@@ -185,7 +185,7 @@ export default function Register() {
 							/>
 
 							<div className="register__notify">
-								<span className={notifyError && "error"}>
+								<span className={notifyError ? "error" : undefined}>
 									{notifyError
 										? "Escolha se deseja receber ofertas, novidades, conteúdos informativos e publicitários:"
 										: "Quero receber ofertas, novidades, conteúdos informativos e publicitários da Disparo Pro"}

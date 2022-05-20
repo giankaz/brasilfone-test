@@ -56,7 +56,7 @@ export default function InputPass({
 						error={className ? true : false}
 						type={values.showPassword ? "text" : "password"}
 						value={values.password}
-						sx={{ height: "40px", border: className }}
+						sx={{ height: "40px"}}
 						onChange={handleChange("password")}
 						endAdornment={
 							<InputAdornment position="end">

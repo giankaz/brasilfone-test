@@ -49,9 +49,8 @@ export default function Login() {
 	}, [errors]);
 
 	const submit = (data) => {
+		
 		const dataBase = JSON.parse(localStorage.getItem("@Disparo_userSubmit"));
-
-		console.log(`🤖 ~ submit ~ dataBase`, dataBase);
 
 		if (dataBase.email === data.email || dataBase.number === data.email) {
 
@@ -96,7 +95,7 @@ export default function Login() {
 								label="E-mail ou celular"
 								register={register}
 								info="email"
-								className={errors.email?.message && "error"}
+								className={errors.email?.message ? "error" : undefined}
 								errorMsg={""}
 							/>
 
@@ -104,7 +103,7 @@ export default function Login() {
 								label="Senha"
 								register={register}
 								info="pass"
-								className={errors.pass?.message && "error"}
+								className={errors.pass?.message ? "error" : undefined}
 								errorMsg={""}
 							/>
 
